@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "USD to CAD Converter",
     "version": "1.0",
     "description": "Converts USD to CAD",
@@ -8,7 +8,7 @@
       "48": "icon.png",
       "128": "icon.png"
     },
-    "browser_action": {
+    "action": {
       "default_popup": "popup.html",
       "default_icon": {
         "16": "icon.png",
@@ -16,13 +16,10 @@
         "128": "icon.png"
       }
     },
-    "permissions": ["activeTab"],
-    "content_scripts": [
-      {
-        "matches": ["https://*/*"],
-        "js": ["popup.js"],
-        "css": ["styles.css"]
-      }
-    ]
+    "permissions": ["scripting"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+      "service_worker": "background.js"
+    }
   }
   
